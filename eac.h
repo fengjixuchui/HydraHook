@@ -35,7 +35,7 @@ namespace eac
 			return false;
 		}
 
-		ex_allocate_pool_with_tag_fn = *( ex_allocate_pool_with_tag_t * )( base + 0xD7B80 );
+		ex_allocate_pool_with_tag_fn = *reinterpret_cast< ex_allocate_pool_with_tag_t* >( base + 0xD7B80 );
 		*reinterpret_cast<uintptr_t*>( base + 0xD7B80 ) = reinterpret_cast<uintptr_t>( &hk_allocation );
 
 		return true;
