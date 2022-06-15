@@ -16,7 +16,7 @@ auto DriverEntry( ) -> NTSTATUS
 
 	const auto easy_anti_cheat = utils::get_kernel_module( "EasyAntiCheat.sys" );
 
-	if ( !easy_anti_cheat.base || !easy_anti_cheat.size )
+	if ( !easy_anti_cheat.base )
 	{
 		DbgPrintEx( 0, 0, "EasyAntiCheat.sys is not loaded." );
 		return STATUS_UNSUCCESSFUL;
