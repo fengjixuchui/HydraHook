@@ -16,10 +16,11 @@ namespace eac
 
 	auto hook_allocation( const uintptr_t base, const size_t size ) -> bool
 	{
-		const auto *dos = reinterpret_cast< IMAGE_DOS_HEADER * >( base );
-
-		const auto *nt = reinterpret_cast< IMAGE_NT_HEADERS * >( base + dos->e_lfanew );
-
+		if ( size <= 0x1000 )
+		{
+			return false;
+		}
+		
 		ex_allocate_pool_with_tag_fn = *reinterpret_cast< ex_allocate_pool_with_tag_t* >( base + 0xD7B80 );
 		*reinterpret_cast<uintptr_t*>( base + 0xD7B80 ) = reinterpret_cast<uintptr_t>( &hk_allocation );
 
