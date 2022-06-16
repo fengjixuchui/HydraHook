@@ -7,7 +7,7 @@ namespace eac
 	{
 		if ( size == 33096 + 16 ) // 16 size of a packet
 		{
-			DbgPrintEx( 0, 0, "EasyAntiCheat Hydra packet denied\n" );
+			DbgPrintEx( 0, 0, "EasyAntiCheat Hydra packet denied" );
 			return 0;
 		}
 
